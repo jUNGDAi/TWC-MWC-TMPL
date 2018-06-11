@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--path = path of uri ie: localhost:8080/WMS-->
+<Context antiJARLocking="true" path="/TWC-WMS-TMPL"/>

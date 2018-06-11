@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="WMS600Report"
+		 columnCount="1"
+		 printOrder="Horizontal"
+		 orientation="Landscape"
+		 pageWidth="164"
+		 pageHeight="116"
+		 columnWidth="156"
+		 columnSpacing="0"
+		 leftMargin="4"
+		 rightMargin="4"
+		 topMargin="4"
+		 bottomMargin="4"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.zoom" value="4.96737058447324" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="3" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<style 
+		name="conditional"
+		isDefault="false"
+	>
+
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{QRMDESC}.length() < 25 ? true : false]]></conditionExpression>
+			<style 
+				isDefault="false"
+				fontSize="10"
+			/>
+		</conditionalStyle>
+			<conditionalStyle>
+				<conditionExpression><![CDATA[$F{QRMDESC}.length() > 25 ? true : false]]></conditionExpression>
+				<style 
+					isDefault="false"
+					fontSize="8"
+					isBold="true"
+				/>
+			</conditionalStyle>
+	</style>
+
+	<parameter name="ID_START" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA[new String("TWC01F17112800040")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ID_END" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA[new String("TWC01F17112800049")]]></defaultValueExpression>
+	</parameter>
+	<queryString><![CDATA[SELECT * FROM QRMMAS WHERE QRMWHSE = 'WH2' 
+--AND QRMTAX BETWEEN '69/3409' AND '69/3411' 
+AND (QRMID BETWEEN 'TWC01F18050700428' AND 'TWC01F18050700430' ) 
+ORDER BY QRMID, QRMTAX, QRMCODE,  QRMROLL]]></queryString>
+
+	<field name="QRMCOM" class="java.lang.String"/>
+	<field name="QRMID" class="java.lang.String"/>
+	<field name="QRMCODE" class="java.lang.String"/>
+	<field name="QRMVAL" class="java.lang.String"/>
+	<field name="QRMROLL" class="java.math.BigDecimal"/>
+	<field name="QRMIDTEMP" class="java.lang.String"/>
+	<field name="QRMDESC" class="java.lang.String"/>
+	<field name="QRMPO" class="java.lang.String"/>
+	<field name="QRMTAX" class="java.lang.String"/>
+	<field name="QRMPACKTYPE" class="java.lang.String"/>
+	<field name="QRMQTY" class="java.math.BigDecimal"/>
+	<field name="QRMALQTY" class="java.math.BigDecimal"/>
+	<field name="QRMBUN" class="java.lang.String"/>
+	<field name="QRMAUN" class="java.lang.String"/>
+	<field name="QRMCVFAC" class="java.math.BigDecimal"/>
+	<field name="QRMCVFQTY" class="java.math.BigDecimal"/>
+	<field name="QRMSTS" class="java.lang.String"/>
+	<field name="QRMPARENT" class="java.lang.String"/>
+	<field name="QRMPDDATE" class="java.lang.String"/>
+	<field name="QRMISDATE" class="java.lang.String"/>
+	<field name="QRMRCDATE" class="java.lang.String"/>
+	<field name="QRMTFDATE" class="java.lang.String"/>
+	<field name="QRMLOTNO" class="java.lang.String"/>
+	<field name="QRMDYNO" class="java.lang.String"/>
+	<field name="QRMQIS" class="java.lang.String"/>
+	<field name="QRMWHSE" class="java.lang.String"/>
+	<field name="QRMZONE" class="java.lang.String"/>
+	<field name="QRMPALLET" class="java.lang.String"/>
+	<field name="QRMRACKNO" class="java.lang.String"/>
+	<field name="QRMSIDE" class="java.lang.String"/>
+	<field name="QRMROW" class="java.lang.String"/>
+	<field name="QRMCOL" class="java.lang.String"/>
+	<field name="QRMLOC" class="java.lang.String"/>
+	<field name="QRMPLANT" class="java.lang.String"/>
+	<field name="QRMSTORAGE" class="java.lang.String"/>
+	<field name="QRMEDT" class="java.sql.Timestamp"/>
+	<field name="QRMCDT" class="java.sql.Timestamp"/>
+	<field name="QRMUSER" class="java.lang.String"/>
+
+	<variable name="DESC1" class="java.lang.String" resetType="Report" calculation="Nothing">
+		<variableExpression><![CDATA[$F{QRMDESC}]]></variableExpression>
+	</variable>
+	<variable name="DESC2" class="java.lang.String" resetType="Report" calculation="Nothing">
+		<variableExpression><![CDATA[$F{QRMDESC}]]></variableExpression>
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="107"  isSplitAllowed="true" >
+				<image  vAlign="Middle" hAlign="Center" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="105"
+						y="-2"
+						width="52"
+						height="52"
+						key="image"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.awt.Image"><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+new com.google.zxing.qrcode.QRCodeWriter().encode(
+$F{QRMID}+"|"+$F{QRMROLL}+"|"+$F{QRMTAX}+"|"+$F{QRMCODE}+"|"+$F{QRMDESC}.trim()+"|"+$F{QRMALQTY}+"|"+ $F{QRMAUN}+"|"+$F{QRMQTY}+"|"+$F{QRMBUN}+"|"+$F{QRMCVFQTY}.setScale( 0, BigDecimal.ROUND_HALF_UP )+"|"+new DecimalFormat("#,###.000").format($F{QRMCVFAC}.setScale( 3, BigDecimal.ROUND_HALF_UP ))+"|"+$F{QRMRCDATE}+"|"+$F{QRMPO},
+com.google.zxing.BarcodeFormat.QR_CODE, 300, 300))]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="1"
+						y="0"
+						width="12"
+						height="14"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahomabd.ttf" size="10" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[P:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="13"
+						y="0"
+						width="91"
+						height="14"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="10" isUnderline="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMPO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="1"
+						y="15"
+						width="12"
+						height="14"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahomabd.ttf" size="10" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[B:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="13"
+						y="15"
+						width="91"
+						height="14"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="10" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMTAX}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="30"
+						width="125"
+						height="16"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahomabd.ttf" size="12" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMCODE}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="63"
+						width="155"
+						height="1"
+						key="line"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="64"
+						width="155"
+						height="14"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahomabd.ttf" size="10" isBold="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Qty : " + $F{QRMALQTY}.setScale( 3, BigDecimal.ROUND_HALF_UP ) + " " + $F{QRMAUN}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="101"
+						y="80"
+						width="52"
+						height="14"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="10" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMRCDATE}.split( "-" )[2] + "-" + $F{QRMRCDATE}.split( "-" )[1] + "-" + $F{QRMRCDATE}.split( "-" )[0]]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="19"
+						y="95"
+						width="134"
+						height="11"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" pdfFontName="THSarabunNew Bold.ttf" size="8" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="80"
+						width="104"
+						height="14"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="10" isBold="false" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["GR: " + new DecimalFormat("#,###.000").format($F{QRMQTY}.setScale( 3, BigDecimal.ROUND_HALF_UP )) + " " + $F{QRMBUN}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="95"
+						width="78"
+						height="11"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="8" isBold="false" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMCVFQTY}.setScale( 0, BigDecimal.ROUND_HALF_UP ) + " " + $F{QRMAUN} + "= " + new DecimalFormat("#,###.000").format($F{QRMCVFAC}.setScale( 3, BigDecimal.ROUND_HALF_UP )) + " " + $F{QRMBUN}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="79"
+						width="155"
+						height="1"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="77"
+						y="95"
+						width="27"
+						height="11"
+						key="textField-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="8" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{QRMPACKTYPE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="49"
+						width="156"
+						height="13"
+						key="textField">
+							<printWhenExpression><![CDATA[($F{QRMDESC}.length() > 25 ? Boolean.TRUE : Boolean.FALSE)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="6" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$V{DESC1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="49"
+						width="156"
+						height="13"
+						key="textField-2">
+							<printWhenExpression><![CDATA[($F{QRMDESC}.length() < 26 ? Boolean.TRUE : Boolean.FALSE)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="tahoma.ttf" size="10" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$V{DESC2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

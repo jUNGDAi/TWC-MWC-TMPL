@@ -1,0 +1,104 @@
+    #sidebar-wrapper { 
+      background-color: #f8f8f8;
+      border-right:1px solid #e5e5e5;
+    }
+    body{
+      background-color: #FFFFFF;
+      font-size: 15px;
+      min-width: 1024px;
+    }
+    .head-menu {
+      margin-bottom:11px; 
+      margin-top:11px;
+      color:#777;
+      font-weight: bold;
+    }
+    .head-custom {
+      margin: 0px;
+      color:#2E3E92;
+      font-weight: bold;
+    }
+    .modal-title {
+      font-size: 20px;
+      color:#2E3E92;
+      font-weight: bold;
+    }
+    .modal .modal-dialog { 
+      width: 65%; 
+      min-width: 700px;
+    }
+    .modal .modal-dialog.smaller {
+      width: 30%;
+      min-width:250px;
+    }
+    .custom-toggle-menu {
+      margin:0px;
+      margin-right:5px;
+    }
+    .nav-head-custom {
+      height: 42px;
+      width: 100%;
+      background-color: #f8f8f8;
+      border-bottom:1px solid #e5e5e5;
+    }
+    .page-header {
+      color:#226097;
+      font-weight: bold;
+    }
+    .icon-size-sm {
+      font-size: 16px;
+    }
+    .icon-size-lg {
+      font-size: 20px;
+    }
+    .btn-size-sm {
+      padding-top:7px;
+      padding-bottom:3px;
+    }
+    .custom-body {
+      border-radius: 10px;
+      background-color: #F7F7F7;
+      width: 320px;
+      padding: 10px;
+      height: 40px;
+      border-width:1.8px; 
+      border-style:dashed;
+      border-color: #C1C1C1;
+    }
+
+    .custom-icon-w-b i {
+        color: white;
+    } 
+    .custom-text {
+      color:#777;
+    }
+    tfoot input {
+      width: 100%;
+      padding: 3px;
+      box-sizing: border-box;
+    }
+    thead, tfoot {
+      display: table-header-group;
+    }
+    .dataTables_filter{ 
+      display: none; 
+    }
+
+    .checkbox.form-check-data {
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+
+    .form-value-type {
+      padding-left: 5px;
+      padding-top: 10px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .has-line-bottom {
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+    }
